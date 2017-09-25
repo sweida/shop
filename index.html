@@ -1,0 +1,127 @@
+<!doctype html>
+<html ng-app="shop">
+<head>
+<meta charset="utf-8">
+<title>商铺管理</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/webuploader.css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+
+<script src="js/jquery.easing.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.js"></script>
+<script src="js/angular-resource.js"></script>
+<script src="datepicker/WdatePicker.js"></script><!-- 日历 -->
+<script src="js/index.js"></script>
+
+
+</head>
+
+<body >
+
+  <div ng-include="'common/header.html'"></div>
+
+  <div class="wrap">
+    <div class="container-setting fix">
+      
+      <!-- 公用菜单 -->
+      <div ng-include="'common/nav.html'"></div>
+
+      <div ng-view></div>
+
+
+    </div>
+  </div>
+
+
+
+
+  <!-- 公用底部 -->
+  <div ng-include="'common/footer.html'"></div>
+
+  <!-- 公用弹框 -->
+  <div ng-include="'common/dialog.html'"></div>
+
+
+  <script>
+    var shop = angular.module("shop",["ngRoute"]);
+
+    shop.config(function($routeProvider){
+      $routeProvider
+        //店铺
+        .when("/",{templateUrl:"shop.html"})
+        .when("/shop_setting",{templateUrl:"shop_setting.html"})
+        //订单管理
+        .when("/order",{templateUrl:"order-control.html"})
+        .when("/pay",{templateUrl:"pay.html"})
+        .when("/express",{templateUrl:"express.html"})
+        .when("/express_add",{templateUrl:"express_add.html"})
+        .when("/exp/:id",{templateUrl:"express_edit.html"})
+        .when("/address",{templateUrl:"address.html"})
+        // 商铺管理
+        .when("/goods",{templateUrl:"goods.html"})
+        .when("/goods_edit",{templateUrl:"goods_edit.html"})
+        .when("/goods_type",{templateUrl:"goods_type.html"})
+        .when("/goods_type/:id",{templateUrl:"goods_edittype.html"})
+        .when("/goods_addtype",{templateUrl:"goods_addtype.html"})
+        // 广告管理
+        .when("/ad_index",{templateUrl:"ad_index.html"})
+        .when("/ad_other",{templateUrl:"ad_other.html"})
+        .when("/ad/:id",{templateUrl:"ad_edit.html"})
+        .when("/ad_add",{templateUrl:"ad_add.html"})
+        .otherwise({redirectTo:"/"})
+    });
+
+
+    shop.controller('ad_lictrl', function($scope,$http) {
+        $http.get("data/banners.json").success(function(resp){
+          $scope.banners = resp.data;
+        })
+    });
+
+    shop.controller("ad_editctrl",function($scope, $http, $routeParams){
+        $http.get("data/ad_"+$routeParams.id+".json").success(function(resp){
+          $scope.banner = resp;
+        })
+    })
+
+    shop.controller('goods_lictrl', function($scope,$http) {
+        $http.get("data/goodstype.json").success(function(resp){
+          $scope.banners = resp.data;
+        })
+    });
+
+    shop.controller('goods_edittype_ctrl', function($scope,$http) {
+        $http.get("data/goodsedittype.json").success(function(resp){
+          $scope.banners = resp.data;
+        })
+    });
+
+    shop.controller('expres_ctrl', function($scope,$http) {
+        $http.get("data/express.json").success(function(resp){
+          $scope.express = resp.data;
+        })
+    });
+    shop.controller('express_editctrl',function($scope,$http,$routeParams){
+        $http.get("data/exp_"+$routeParams.id+".json").success(function(resp){
+          $scope.exp = resp; 
+        })
+    });
+
+    shop.controller('goods_typectrl', function($scope,$http){
+      $http.get("data/gd_type.json").success(function(resp){
+        $scope.gdtype = resp.data;
+      })
+    })
+
+    shop.controller('goods_typeeditctrl', function($scope,$http,$routeParams){
+      $http.get("data/gd_type_"+$routeParams.id+".json").success(function(resp){
+        $scope.gdtypeedit = resp;
+      })
+    })
+  </script>
+
+
+</body>
+</html>
+

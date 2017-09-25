@@ -1,0 +1,154 @@
+
+      <div class="container-middle">
+          <ul class="b-nav">
+            <a href="#">广告管理</a><span>></span><a href="#">内页广告</a>
+          </ul>
+
+
+          <div class="main_title">内页广告</div>
+          <!--主要内容-->
+          <div class="wd_main">
+            <div class="top_nav">
+              <li class="on">banner</li>
+              <li>中部广告</li>
+              <li>底部广告</li>
+
+            </div>
+            <!-- banner -->
+            <div class="ad_main">
+              <a href="#/ad_edit" class="add_ad">+添加</a>
+              <table>
+                <tr>
+                  <th class="th1">标题</th>
+                  <th class="th2">尺寸</th>
+                  <th class="th3">时间</th>
+                  <th class="th4">操作</th>
+                </tr>
+                <tr>
+                  <td class="ad_title">banner1</td>
+                  <td>1920*450</td>
+                  <td>2016-08-17 19：00：00<span>至</span>2016-09-17 19：00：00</td>
+                  <td><a href="javascript:;" class="ad_edit">编辑</a> <a href="javascript:;" onclike="fadeIn()"  class="ad_delete">删除</a></td>
+                </tr>
+                <tr>
+                  <td class="ad_title">banner2</td>
+                  <td>1920*450</td>
+                  <td>2016-08-17 19：00：00<span>至</span>2016-09-17 19：00：00</td>
+                  <td><a href="javascript:;" class="ad_edit">编辑</a> <a href="javascript:;" class="ad_delete">删除</a></td>
+                </tr>
+                <tr>
+                  <td class="ad_title">banner3</td>
+                  <td>1920*450</td>
+                  <td>2016-08-17 19：00：00<span>至</span>2016-09-17 19：00：00</td>
+                  <td><a href="javascript:;" class="ad_edit">编辑</a> <a href="javascript:;" class="ad_delete">删除</a></td>
+                </tr>
+
+              </table>
+
+            </div>
+            <!-- 中部广告 -->
+            <div class="ad_main">
+              <a href="#/ad_edit" class="add_ad">+添加</a>
+              <table>
+                <tr>
+                  <th class="th1">标题</th>
+                  <th class="th2">尺寸</th>
+                  <th class="th3">时间</th>
+                  <th class="th4">操作</th>
+                </tr>
+                <tr>
+                  <td class="ad_title">中部广告1</td>
+                  <td>1920*450</td>
+                  <td>2016-08-17 19：00：00至2016-09-17 19：00：00</td>
+                  <td><a href="javascript:;" class="ad_edit">编辑</a> <a href="javascript:;" class="ad_delete">删除</a></td>
+                </tr>
+                <tr>
+                  <td class="ad_title">中部广告2</td>
+                  <td>1920*450</td>
+                  <td>2016-08-17 19：00：00至2016-09-17 19：00：00</td>
+                  <td><a href="javascript:;" class="ad_edit">编辑</a> <a href="javascript:;" class="ad_delete">删除</a></td>
+                </tr>
+                <tr>
+                  <td class="ad_title">中部广告3</td>
+                  <td>1920*450</td>
+                  <td>2016-08-17 19：00：00至2016-09-17 19：00：00</td>
+                  <td><a href="javascript:;" class="ad_edit">编辑</a> <a href="javascript:;" class="ad_delete">删除</a></td>
+                </tr>
+
+              </table>
+
+            </div>
+
+            <!-- 底部广告 -->
+            <div class="ad_main">
+              <a href="#/ad_edit" class="add_ad">+添加</a>
+              <table>
+                <tr>
+                  <th class="th1">标题</th>
+                  <th class="th2">尺寸</th>
+                  <th class="th3">时间</th>
+                  <th class="th4">操作</th>
+                </tr>
+                <tr>
+                  <td class="ad_title">底部广告1</td>
+                  <td>1920*450</td>
+                  <td>2016-08-17 19：00：00至2016-09-17 19：00：00</td>
+                  <td><a href="javascript:;" class="ad_edit">编辑</a> <a href="javascript:;" class="ad_delete">删除</a></td>
+                </tr>
+                <tr>
+                  <td class="ad_title">底部广告2</td>
+                  <td>1920*450</td>
+                  <td>2016-08-17 19：00：00至2016-09-17 19：00：00</td>
+                  <td><a href="javascript:;" class="ad_edit">编辑</a> <a href="javascript:;" class="ad_delete">删除</a></td>
+                </tr>
+                <tr>
+                  <td class="ad_title">底部广告3</td>
+                  <td>1920*450</td>
+                  <td>2016-08-17 19：00：00至2016-09-17 19：00：00</td>
+                  <td><a href="javascript:;" class="ad_edit">编辑</a> <a href="javascript:;" class="ad_delete">删除</a></td>
+                </tr>
+
+              </table>
+
+            </div>
+
+
+          </div>
+      </div>
+
+
+
+  <script>
+  // 广告管理
+  $(function () {
+    //初始化
+    tabAni(0);
+    //点击，获取第几位
+    $('.top_nav li').click(function () {
+        var int = $(this).index();      //index()获取当前元素第几位，0开始
+        tabAni(int);
+    });
+    //遍历第几位
+    function tabAni(int) {
+        $('.top_nav li').removeClass('on').eq(int).addClass('on');
+        $('.ad_main').hide().eq(int).show();
+    };
+  });
+
+  $(function () {
+    $('.ad_delete').click(function(){
+      var title = $(this).parent().prev().prev().prev().text();
+      yes2 = $(this).parent().parent();      // console.log(tr);
+      tip_fadeIn(0,'是否删除 '+title+' ?');  //0提示，1警告，2成功，3错误
+      $('.btn_yes').click(function(){   //确认
+        yes2.remove();
+      })
+    });
+
+  });
+
+  </script>
+
+
+
+

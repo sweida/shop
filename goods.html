@@ -1,0 +1,162 @@
+
+      <div class="container-middle">
+          <ul class="b-nav">
+            <li><a href="#">商品管理</a><span>></span></li>
+            <li><a href="#">商品列表</a></li>
+          </ul>
+          <!--商品管理-->
+          <div>
+            <div class="main_title">商品查询</div>
+            <div class="order-control">
+
+              <div class="form-container">
+              <form action="#" class="order-control-form">
+              	<div class="oh order_selbox">
+	                <p>
+	                  <label for="productID">商品编号/名称</label><input type="text" id="productID" name="productID" value=""/>
+	                </p>
+	                <p>
+	                   <label>商品分类</label>
+						<select>
+		                   <option>全部</option>
+		                   <option>商品分类</option>
+		                 </select>
+		             </p>
+		             <p>
+	                   <label>商品品牌</label>
+						<select>
+		                   <option>全部</option>
+		                   <option>商品品牌</option>
+		                 </select>
+		             </p>
+		             <p>
+	                   <label>商品状态</label>
+						<select>
+		                   <option>全部</option>
+		                   <option>已上架</option>
+		                   <option>已下架</option>
+		                 </select>
+		             </p>
+		             <p>
+	                  <label for="ordered-time-star">创建时间</label><input type="text" id="ordered-time-star" class="Wdate" name="ordered-time-star" value=""/>—<input type="text" id="ordered-time-end" class="Wdate" name="ordered-time-end" value=""/>
+	                </p>
+	                <div class="orderbtnbox">
+	                  <input type="submit" value="查询"/>
+	                  <input type="reset" class="order_btnj"  value="重置"/>
+	                </div>
+	              </div>
+              </form>
+              </div>
+            </div>
+            <div class="order-l-content">
+              <div class="ordstu-nav">
+                <a href="#/goods_edit">添加商品</a>
+                <a href="#" class="o-active">删除</a>
+                <a href="#" class="o-active">上架</a>
+                <a href="#" class="o-active">下架</a>
+                <p class="pg-limit">
+                  <span>每页显示</span> 
+                  <select name="limit-cot" id="limit-cot">
+                    <option value="">20条</option>
+                    <option value="">30条</option>
+                  </select>
+                </p>
+              </div>
+              <div class="order-list">
+                <table class="order-list-tb prolisttable"> 
+                   <col width="12%" />
+  				   <col width="33%" />
+  				   <col width="10%" />
+  				   <col width="8%" />
+  				   <col width="10%" />
+  				   <col width="8%" />
+  				   <col width="10%" />
+                  <thead>
+                    <tr>
+                      <th><input type="checkbox">商品编号</th>
+                      <th>商品名称</th>
+                      <th>商品分类</th>
+                      <th>库存</th>
+                      <th>销售价</th>
+                      <th>是否上架</th>
+                      <th>创建时间</th>
+                      <th class="ord-stu">操作</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><input type="checkbox">1231313</td>
+                      <td><a href="#">基本生活emoi盆栽植物智能音响系列-树苗音响</a></td>
+                      <td>电子科技</td>
+                      <td>121</td>
+                      <td>259.00</td>
+                      <td>
+                      	<!--点击可以设置商品上下架  下架的商品添加on样式-->
+                      	<span class="prouplode on"></span>
+                      </td>
+                      <td>2016-08-04</td>
+                      <td><a href="#" >编辑</a></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox">1231313</td>
+                      <td><a href="#">基本生活emoi盆栽植物智能音响系列-树苗音响</a></td>
+                      <td>电子科技</td>
+                      <td>121</td>
+                      <td>259.00</td>
+                      <td><span class="prouplode"></span></td>
+                      <td>2016-08-04</td>
+                      <td><a href="#" >编辑</a></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox">1231313</td>
+                      <td><a href="#">基本生活emoi盆栽植物智能音响系列-树苗音响</a></td>
+                      <td>电子科技</td>
+                      <td>121</td>
+                      <td>259.00</td>
+                      <td><span class="prouplode"></span></td>
+                      <td>2016-08-04</td>
+                      <td><a href="#" >编辑</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="ui-page">
+              	  <a rel="pre" href="#">上一页</a>
+                  <a rel="1" href="#">1</a>
+                  <a rel="2" href="#" class="ui-page-curr">2</a>
+                  <a rel="3" href="#">3</a>
+                  <a rel="4" href="#">4</a>
+                  <a rel="5" href="#">5</a>
+                  <span>...</span>
+                  <a rel="7" href="#">7777</a>
+                  <a rel="next" href="#">下一页</a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+
+	  <script>
+	    $("#ordered-time-star").click(function(){
+			WdatePicker();
+			});
+	    $("#ordered-time-end").click(function(){
+			WdatePicker();
+			});
+	   $(function(){
+		   //上下架状态切换
+		   $(".prouplode").on("click",function(){
+			   if($(this).hasClass("on")){
+				   $(this).removeClass("on");
+			   }else{
+				   $(this).addClass("on");
+			   }
+		   })
+	   })
+	  </script>
+
+
+
+
+

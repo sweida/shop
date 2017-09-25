@@ -1,0 +1,101 @@
+      <div class="container-middle">
+          <ul class="b-nav">
+            <a href="javascript:;">交易管理</a><span>></span><a href="javascript:;">支付管理</a>
+          </ul>
+
+          <!--主要内容-->
+          <div class="main_title">支付管理</div>
+          <div class="wd_main">
+            <div class="pay_main">
+              <li>
+                <a href="javascript:;" class="zhifubao"></a>
+                <h4 class="on">已开通</h4>
+              </li>
+              <li>
+                <a href="javascript:;" class="weixin"></a>
+                <h4>未开通</h4>
+              </li>
+              <li>
+                <a href="javascript:;" class="huodaofk"></a>
+                <h4 class="on">已开通</h4>
+              </li>
+
+            </div>
+
+            <!-- 支付宝 -->
+            <div class="pay_type" id="edit_zhifubao">
+
+              <p><span>支付方式：</span><input type="text" disabled="disabled" value="支付宝支付"></p>
+              <p><span><i>*</i>支付网关：</span><input type="text" ></p>
+              <p><span><i>*</i>支付宝账户：</span><input type="text" ></p>
+              <p><span><i>*</i>合作商户ID：</span><input type="text" ></p>
+              <p><span><i>*</i>交易安全校验码：</span><input type="text" ></p>
+
+              <p><span>是否开通：</span>
+                <input type="radio" name='zhifubao' id="no_zhifubao" checked="checked"><label for="no_zhifubao">不开通</label>
+                <input type="radio" name="zhifubao" id="yes_zhifubao"><label for="yes_zhifubao">开通</label>
+              </p>
+              <input type="submit" value="保存" class="pay_submit" id="sub_zhifubao">
+              <input type="button" value="取消" class="pay_close">
+
+            </div>
+            <!-- 微信 -->
+            <div class="pay_type" id="edit_weixin">
+
+              <p><span>支付方式：</span><input type="text" disabled="disabled" value="微信支付"></p>
+              <p><span><i>*</i>合作商户ID：</span><input type="text" ></p>
+              <p><span><i>*</i>密钥：</span><input type="text" ></p>
+              <p><span><i>*</i>PsySignKey：</span><input type="text" ></p>
+              <p><span><i>*</i>微信支付Appid：</span><input type="text" ></p>
+              <p><span><i>*</i>微信支付Sceret：</span><input type="text" ></p>
+
+              <p><span>是否开通：</span>
+                <input type="radio" name='weixin' id="no_weixin" checked="checked"><label for="no_weixin">不开通</label>
+                <input type="radio" name="weixin" id="yes_weixin"><label for="yes_weixin">开通</label>
+              </p>
+              <input type="submit" value="保存" class="pay_submit" id="sub_weixin">
+              <input type="button" value="取消" class="pay_close">
+
+            </div>
+            <!-- 货到付款 -->
+            <div class="pay_type" id="edit_huodaofk">
+              <p><span>支付方式：</span><input type="text" disabled="disabled" value="货到付款"></p>
+              <p><span>是否开通：</span>
+                <input type="radio" name='huodaofk' id="no_huodaofk"><label for="no_huodaofk">不开通</label>
+                <input type="radio" name="huodaofk" id="yes_huodaofk" checked="checked"><label for="yes_huodaofk">开通</label>
+              </p>
+              <input type="submit" value="保存" class="pay_submit" id="sub_huodaofk">
+              <input type="button" value="取消" class="pay_close">
+            </div>
+  
+
+
+
+          </div>
+      </div>
+
+
+  <script>
+  $(function(){
+
+    // 支付方式
+    $('.huodaofk').click(function(){
+      $('#edit_huodaofk').show();
+    });
+    $('.zhifubao').click(function(){
+      $('#edit_zhifubao').show();
+    });
+    $('.weixin').click(function(){
+      $('#edit_weixin').show();
+    });
+    // 支付方式关闭按钮
+    $('.pay_close').click(function(){
+      $('.pay_type').hide();
+    });
+    
+  })
+  </script>
+
+
+
+

@@ -1,0 +1,8 @@
+{
+	"data":[
+        {"id":"a","title":"banner1","length":"1920*450","start_time":"2016-06-21 18:22:10","end_time":"2016-08-11 16:32:23","img":"1.jpg"},
+        {"id":"b","title":"banner2","length":"1920*450","start_time":"2016-06-22 18:22:10","end_time":"2016-08-12 16:32:23","img":"2.jpg"},
+        {"id":"c","title":"banner3","length":"1920*450","start_time":"2016-06-23 18:22:10","end_time":"2016-08-13 16:32:23","img":"3.jpg"},
+        {"id":"d","title":"banner4","length":"1920*450","start_time":"2016-06-24 18:22:10","end_time":"2016-08-14 16:32:23","img":"4.jpg"}
+	]
+}

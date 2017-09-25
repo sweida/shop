@@ -1,0 +1,122 @@
+
+
+      <div class="container-middle">
+          <ul class="b-nav">
+            <a href="javascript:;">交易管理</a><span>></span><a href="javascript:;">发货地址</a>
+          </ul>
+
+          <!--主要内容-->
+          <div class="main_title">发货地址管理</div>
+          <div class="wd_main">
+            <div class="wd_alladd">
+              <div class="addaddress"><a href="javascript:;" id="addReceiver">新增地址</a></div>
+
+              <li>
+                <div class="addtop"><span>能哦时候</span><i>13798661922</i></div>
+                <div class="addmain">
+                  <i></i>
+                  <span>广东省深圳市南山区</span><p>送芥末云南省玉溪市通海县阴柔哦送芥末</p>
+                </div>
+                <div class="addfoot">
+                  <a href="javascript:;" class="wd_color1">修改</a>
+                  <a href="javascript:;" class="wd_color0">删除</a>
+                  <a href="javascript:;" class="default">设为默认</a>
+                </div>
+
+              </li>
+
+              <li class="on">
+                <div class="addtop"><span>能哦时候</span><i>13798661922</i></div>
+                <div class="addmain">
+                  <i></i>
+                  <span>云南省玉溪市通海县</span><p>阴柔哦送芥末</p>
+                </div>
+                <div class="addfoot">
+                  <a href="javascript:;" class="wd_color1">修改</a>
+                  <a href="javascript:;" class="wd_color0">删除</a>
+                  <a href="javascript:;" class="default on">设为默认</a>
+                </div>
+              </li>
+
+              <li>
+                <div class="addtop"><span>能哦时候</span><i>13798661922</i></div>
+                <div class="addmain">
+                  <i></i>
+                  <span>云南省玉溪市通海县</span><p>阴柔哦送芥末</p>
+                </div>
+                <div class="addfoot">
+                  <a href="javascript:;" class="wd_color1">修改</a>
+                  <a href="javascript:;" class="wd_color0">删除</a>
+                  <a href="javascript:;" class="default on">设为默认</a>
+                </div>
+              </li>
+
+
+            </div>
+
+
+
+
+          </div>
+      </div>
+
+
+      <!-- 添加地址 -->
+      <div class="edit_main">
+        <h3 id="titleReceiver">新增发货地址<a href="javascript:;" class="add_close"></a></h3>
+
+        <div class="change-p">
+          <form id="receiverForm" method="post" novalidate="novalidate">
+            <input type="hidden" id="receiver_id" name="id" value=""> 
+
+            <p><i>*</i>收货人：</p><input type="text" id="consignee" name="consignee">
+            <p><i>*</i>手机号码：</p><input type="text" onkeyup="this.value=this.value.replace(/[^_0-9\\-]/g,'')" onpaste="this.value=this.value.replace(/[^_0-9\\-]/g,'')" id="phone" name="phone" maxlength="13">
+            <p><i>*</i>详细地址：</p>
+
+            <span class="fieldSet">
+              <input type="hidden" id="areaId" name="areaId" value="" treepath=""><select name="areaId_select" style="margin-right: 4px;"><option value="">请选择...</option><option value="1">北京市</option><option value="18">天津市</option><option value="35">河北省</option><option value="219">山西省</option><option value="351">内蒙古自治区</option><option value="465">辽宁省</option><option value="580">吉林省</option><option value="650">黑龙江省</option><option value="792">上海市</option><option value="810">江苏省</option><option value="926">浙江省</option><option value="1028">安徽省</option><option value="1150">福建省</option><option value="1245">江西省</option><option value="1357">山东省</option><option value="1515">河南省</option><option value="1692">湖北省</option><option value="1809">湖南省</option><option value="1946">广东省</option><option value="2089">广西壮族自治区</option><option value="2213">海南省</option><option value="2240">重庆市</option><option value="2279">四川省</option><option value="2482">贵州省</option><option value="2580">云南省</option><option value="2726">西藏自治区</option><option value="2807">陕西省</option><option value="2925">甘肃省</option><option value="3026">青海省</option><option value="3078">宁夏回族自治区</option><option value="3106">新疆维吾尔自治区</option><option value="3219">台湾省</option><option value="3292">香港特别行政区</option><option value="3314">澳门特别行政区</option></select>
+            </span>
+            <input type="text" id="address" name="address" class="address valid">
+
+            <a href="javascript:;" class="default2 on">设为默认发货地址</a>
+            <input type="checkbox" hidden="true" id="isDefault" name="isDefault" value="true">
+            <input type="hidden" name="_isDefault" value="false">
+            <a href="javascript:;" class="save-add animate03">保存发货地址</a>
+          </form>
+        </div>
+      </div>
+
+
+<script>
+
+  $(function(){
+
+    // 默认发货地址
+    $('.addfoot .default').click(function(){
+      $('.addfoot .default').parent().parent().removeClass('on');
+      $(this).parent().parent().addClass('on');
+    });
+    $('.default2').click(function(){
+      $(this).toggleClass('on');
+    });
+    // 新增发货地址
+    $('#addReceiver,.add_close').click(function(){
+      $('.edit_main').stop().slideToggle();
+    });
+
+  });
+
+  // 删除地址
+  $(function () {
+    $('.wd_color0').click(function(){
+      var title = $(this).parent().prev().prev().prev().text();
+      ad_tr = $(this).parent().parent();      // console.log(tr);
+      tip_fadeIn(0,'是否删除地址?');  //0提示，1警告，2成功，3错误
+      $('.btn_yes').click(function(){   //确认
+        ad_tr.remove();
+      })
+    });
+  });
+</script>
+
+

@@ -1,0 +1,104 @@
+
+	
+		<div class="container-middle" ng-controller="goods_typectrl">
+			<ul class="b-nav">
+        		<a href="#">商品管理</a><span>></span><a href="#">商品分类</a>
+        	</ul>
+          
+			<!--商品分类管理-->
+			<div class="main_title">商品分类管理</div>
+			<div class="order-control">
+				<div class="proinfo procategory">
+					<!--商品规格-->
+					<div class="ordstu-nav">
+						<a href="#/goods_addtype">添加分类</a>
+					</div>
+
+					<table class="order-list-tb prolisttable">
+						<col width="50%" />
+				  		<col width="24%" />
+						<thead>
+							<tr>
+								<th>分类名称</th>
+								<th>排序</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr ng-repeat="x in gdtype">
+								<td colspan="3" >
+									<div class="categorybox">
+										<div class="categoryname">
+											<span class="categynamezone pro_re"><em>-</em><i>{{x.title}}</i></span>
+										</div>
+										<div class="categorynum">
+											<span>{{x.orderby}}</span>
+										</div>
+										<div class="categorydo">
+											<a href="#/goods_type/{{x.id}}" class="proifclose">编辑</a>
+											<a href="javascirpt:void(0);" class="prodelbtn prodeltop"></a>
+										</div>
+									</div>
+									<!--点击分类名称，展示二级分类-->
+									<div class="categy_menus">
+										<div class="categoryname">
+											<i>子分类</i>
+										</div>
+										<div class="categorynum">
+											<span>1</span>
+										</div>
+										<div class="categorydo">
+											<a href="javascirpt:void(0);" class="proifclose">编辑</a>
+											<a href="javascirpt:void(0);" class="prodelbtn prodelsec"></a>
+										</div>
+									</div>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+      
+
+
+		<script>
+		$(function(){
+			//顶级菜单展开
+			$('.categynamezone em').toggle(function(){
+				$(this).parents(".categorybox").siblings('.categy_menus').slideToggle();
+				$(this).html("+");
+			},function(){
+				$(this).parents(".categorybox").siblings('.categy_menus').slideToggle();
+				$(this).html("-");
+			});
+
+			//二级菜单删除操作
+			$(".prodelsec").click(function(){
+				var lg=$(this).parents('.categy_menus').siblings('.categy_menus').length;
+				if(lg==0){
+					$(this).parents('.categy_menus').siblings('.categorybox').find('em').remove();
+				}
+				$(this).parents('.categy_menus').remove();
+			});
+
+
+			//顶级菜单删除操作
+			$('.prodeltop').click(function(){
+				var title = $(this).parent().prev().prev().text();
+				goods_tr = $(this).parents('tr');
+				tip_fadeIn(0,'是否删除一级分类'+title+'?');  //0提示，1警告，2成功，3错误
+			    $('.btn_yes').click(function(){   //确认
+					goods_tr.detach();
+			    });
+			});
+
+		})
+		</script>
+
+
+
+
+

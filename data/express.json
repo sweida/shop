@@ -1,0 +1,9 @@
+{
+	"data":[
+        {"id":"a","title":"中通快递","price":"0"},
+        {"id":"b","title":"申通快递","price":"0"},
+        {"id":"c","title":"EMS","price":"0"},
+        {"id":"d","title":"顺丰快递","price":"￥12"},
+        {"id":"e","title":"德邦物流","price":"￥20"}
+	]
+}
